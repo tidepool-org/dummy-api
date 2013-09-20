@@ -1,0 +1,25 @@
+{
+  "name": "dummy-api",
+  "version": "0.0.0",
+  "description": "Test API to validate Tidepool standards and processes.",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Tidepool",
+  "license": "Tidepool",
+  "dependencies": {
+    "restify": "~2.6.0",
+    "request": "~2.25.0",
+    "cookies": "~0.3.6"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-uglify": "~0.2.4"
+  }
+}

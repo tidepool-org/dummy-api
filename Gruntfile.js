@@ -24,14 +24,25 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc'
       },
       all: ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js']
+    },
+    docco: {
+      docs: {
+        src: ['lib/**/*.js'],
+        dest: ['docs'],
+        options: {
+          layout: 'linear',
+          output: 'docs'
+        }
+      }
     }
   });
 
   // Load the plugins
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-docco2');
 
   // Default task(s).
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'docco']);
 
 };

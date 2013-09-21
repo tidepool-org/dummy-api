@@ -17,6 +17,7 @@ docs/: lib/
 
 travis:
 	# set up for travis
+	npm install -g grunt mocha jshint grunt-cli
 
 configure:
 	

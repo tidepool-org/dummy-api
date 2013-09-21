@@ -1,22 +1,23 @@
 
 
+
 all: build install
 
 install:
 	npm install
 
 test:
-	grunt jshint
+	node_modules/.bin/grunt jshint
 
 build:
-	grunt
+	node_modules/.bin/grunt
 
 docs/: lib/
-	grunt
+	node_modules/.bin/grunt
 
 travis:
 	# set up for travis
-	npm install -g grunt
+	npm install grunt
 
 configure:
 	

@@ -4,8 +4,8 @@ before_script:
 - export HELLO=$HELLO
 - echo $HELLO
 - npm install -g grunt mocha
-- which grunt
-- which mocha
+- which grunt || echo "nope"
+- which mocha || echo "nope"
 script:
 - make test
 env:

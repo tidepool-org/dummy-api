@@ -7,7 +7,7 @@ install:
 	npm install
 
 test:
-	jshint lib/*.js ./*.js
+	grunt jshint
 
 build:
 	grunt

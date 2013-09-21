@@ -3,9 +3,10 @@ before_script:
 - make travis
 - export HELLO=$HELLO
 - echo $HELLO
-- npm install -g grunt mocha
+- npm install -g grunt mocha jshint
 - which grunt || echo "nope"
 - which mocha || echo "nope"
+- which jshint || echo "nope"
 script:
 - make test
 env:

@@ -15,7 +15,8 @@ docs/: lib/
 	grunt
 
 travis:
-	
+	# set up for travis
+
 configure:
 	
 

@@ -1,0 +1,14 @@
+
+
+language: node_js
+before_script:
+  - make travis
+  - export HELLO=$HELLO
+  - echo $HELLO
+script:
+  - make test
+
+
+env:
+  global:
+  - GH_REPO="tidepool-org/dummy-api"

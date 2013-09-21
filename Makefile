@@ -16,7 +16,7 @@ docs/: lib/
 
 travis:
 	# set up for travis
-	sudo npm install -g grunt
+	npm install -g grunt
 
 configure:
 	

@@ -6,7 +6,7 @@ install:
 	npm install
 
 test:
-	npm test
+	grunt jshint
 
 build:
 	grunt

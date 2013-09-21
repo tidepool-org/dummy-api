@@ -7,17 +7,16 @@ install:
 	npm install
 
 test:
-	./node_modules/.bin/grunt jshint
+	grunt jshint
 
 build:
-	./node_modules/.bin/grunt
+	grunt
 
 docs/: lib/
-	./node_modules/.bin/grunt
+	grunt
 
 travis:
 	# set up for travis
-	npm install grunt
 
 configure:
 	

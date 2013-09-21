@@ -3,6 +3,9 @@ before_script:
 - make travis
 - export HELLO=$HELLO
 - echo $HELLO
+- npm install -g grunt mocha
+- which grunt
+- which mocha
 script:
 - make test
 env:

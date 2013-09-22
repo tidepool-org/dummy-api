@@ -27,11 +27,24 @@ module.exports = function(grunt) {
     },
     docco: {
       docs: {
-        src: ['lib/**/*.js'],
+        src: ['lib/**/*.js', './*.md'],
         dest: ['docs'],
         options: {
           layout: 'linear',
           output: 'docs'
+        }
+      }
+    },
+    shell: {
+      addlicense: {
+        // this may not be the best way to do this dependency, but this isn't
+        // a task we're going to run that often.
+        command: 'python ../central/tools/addLicense.py "*/*.js"',
+        options: {
+          async: false,
+          execOptions: {
+            cwd: './lib/'
+          }
         }
       }
     }
@@ -41,6 +54,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-docco2');
+  grunt.loadNpmTasks('grunt-shell-spawn');
 
   // Default task(s).
   grunt.registerTask('default', ['jshint', 'docco']);

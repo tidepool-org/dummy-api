@@ -1,0 +1,14 @@
+language: node_js
+before_script:
+- make travis
+- export HELLO=$HELLO
+- echo $HELLO
+- which grunt || echo "nope"
+- which mocha || echo "nope"
+- which jshint || echo "nope"
+script:
+- make test
+env:
+  global:
+  - GH_REPO="tidepool-org/dummy-api"
+  - secure: eB5JUfs8hdovarkv3XkNznt2v5UJmm6on75cikswVifpiKjhoUiLWCp+vjObca6F/05u3LIn4IUy8+J96GZAqgbPBiqRRRmbgqhQzmIRL4yq9mRH1+15Jy3Q69fPX/uDSpYPjPOFuBK1V/pX/6j88peD0Z5/xh09r0FjotsaHks=

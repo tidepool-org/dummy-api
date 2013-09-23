@@ -5,6 +5,8 @@ This exists to show the best practices for Tidepool code. Eventually it will be 
 
 Literate documentation of the sample code is [here](docs/lib/index.html).
 
+OK. That didn't work because I didn't think that github would serve the source of the HTML instead of as a page. We need to build deployment before I can build a link that works.
+
 ## Running it locally
 
 To use this stuff, you need to install node, npm, and grunt. (details to come).

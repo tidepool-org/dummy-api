@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>index.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          <h1>index.js</h1>
+        
+
+        
+      </div>
+
+      
+        
+        <h2>index.js</h2>
+
+        
+      
+        
+        <p>This file is designed to serve as a demonstration of Tidepool best practices for API design
+and implementation. </p>
+<p>It would be a good idea to read 
+<a href="https://github.com/tidepool-org/central/wiki">the central wiki on Tidepool&#39;s github account</a>.</p>
+
+        
+          <div class='highlight'><pre>
+<span class="comment">/*
+ * == TIDEPOOL LICENSE ==
+ * Copyright (C) 2013 Tidepool Project
+ * 
+ * This source code is subject to the terms of the Tidepool Open Data License, v. 1.0.
+ * If a copy of the license was not provided with this file, you can obtain one at:
+ *     http://tidepool.org/license/
+ * 
+ * == TIDEPOOL LICENSE ==
+ */</span></pre></div>
+        
+      
+        
+        <p>We currently use the coffeescript-inspired anonymous namespacing model, where we create a function
+and then call it with this. It keeps the namespace from being accidentally overridden
+although it doesn&#39;t give us actual namespaces.  </p>
+
+        
+          <div class='highlight'><pre>(<span class="keyword">function</span>() {</pre></div>
+        
+      
+        
+        <p>We use strict because we‘re only worried about modern browsers and we should be strict.
+JSHint actually insists on this and it’s a good idea.</p>
+
+        
+          <div class='highlight'><pre>  <span class="string">'use strict'</span>;</pre></div>
+        
+      
+        
+        <p>It‘s also a good idea to predeclare all variables at the top of a scope. Javascript doesn’t
+support block scoping so putting them all at the beginning is a smart move.</p>
+
+        
+          <div class='highlight'><pre>  <span class="keyword">var</span> echo, envConfig, port, restify, server;</pre></div>
+        
+      
+        
+        <p>Server code needs the environment.</p>
+
+        
+          <div class='highlight'><pre>  envConfig = process.env;</pre></div>
+        
+      
+        
+        <p>Restify helps us with building a RESTful API.</p>
+
+        
+          <div class='highlight'><pre>  restify = require(<span class="string">'restify'</span>);
+  server = restify.createServer({</pre></div>
+        
+      
+        
+        <p>I don&#39;t know what this name actually does. </p>
+
+        
+          <div class='highlight'><pre>    name: <span class="string">'TidepoolDummy'</span>
+  });</pre></div>
+        
+      
+        
+        <p>Two standard restify handler plugins:</p>
+
+        
+          <div class='highlight'><pre>  server.use(restify.queryParser());
+  server.use(restify.bodyParser());</pre></div>
+        
+      
+        
+        <p>This function merely echoes everything it got as a block of text. Useful for debugging.</p>
+
+        
+          <div class='highlight'><pre>  echo = <span class="keyword">function</span>(req, res, next) {
+    console.log(<span class="string">'request'</span>, req.params, req.url, req.method);
+    res.send([
+      <span class="string">'Echo!'</span>, {
+        params: req.params,
+        headers: req.headers,
+        method: req.method
+      }
+    ]);
+    <span class="keyword">return</span> next();
+  };</pre></div>
+        
+      
+        
+        <p>We need to have sensible responses for all the standard verbs.
+Versioning of the API still needs some work — restify supports a standard model out of the box.
+Maybe we should use it.</p>
+
+        
+          <div class='highlight'><pre>  server.get(<span class="string">'/api/v1/echo'</span>, echo);
+  server.post(<span class="string">'/api/v1/echo'</span>, echo);
+  server.put(<span class="string">'/api/v1/echo'</span>, echo);
+  server.del(<span class="string">'/api/v1/echo'</span>, echo);
+  server.head(<span class="string">'/api/v1/echo'</span>, echo);</pre></div>
+        
+      
+        
+        <p>If the port is specified in the environment we&#39;ll use it, but for deploys we 
+want to run on port 80 and then map it in the router.</p>
+
+        
+          <div class='highlight'><pre>  port = envConfig.DUMMY_PORT || <span class="number">80</span>;
+  console.log(<span class="string">'echo API server serving on port'</span>, port);
+  server.listen(port);</pre></div>
+        
+      
+        
+        <p>Wrap up the javascript namespacing model.</p>
+
+        
+          <div class='highlight'><pre>}).call(<span class="keyword">this</span>);</pre></div>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

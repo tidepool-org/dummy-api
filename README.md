@@ -11,9 +11,23 @@ OK. That didn't work because I didn't think that github would serve the source o
 
 To use this stuff, you need to install node, npm, and grunt. (details to come).
 
+**Installing Node**
+
+- [Download nodejs instructions](http://nodejs.org/download/)
+
+**Installing NPM**
+
+- [Overview](https://npmjs.org/)
+- ```curl https://npmjs.org/install.sh | sh```
+
+**Installing Grunt**
+
+- [Getting started instructions](http://gruntjs.com/getting-started)
+- ```npm install -g grunt-cli```
+
 Once you have those, you can install all dependencies with:
 
-    npm install
+```npm install```
 
 For ease of test/debug, you can run this under nodemon, which is why there's a Procfile. You simply have to run nodemon from the top level folder and it will Do The Right Thing. The default port is 
 port 80, so chances are that to run locally you'll want to set the DUMMY_PORT environment variable

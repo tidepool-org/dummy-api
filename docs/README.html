@@ -25,10 +25,26 @@
       
         
         <p>This exists to show the best practices for Tidepool code. Eventually it will be an example of how we design APIs, write code, do documentation, do testing, and deploy reliably.</p>
+<p>Literate documentation of the sample code is <a href="docs/lib/index.html">here</a>.</p>
+<p>OK. That didn‘t work because I didn’t think that github would serve the source of the HTML instead of as a page. We need to build deployment before I can build a link that works.</p>
 <h2>Running it locally</h2>
 <p>To use this stuff, you need to install node, npm, and grunt. (details to come).</p>
+<p><strong>Installing Node</strong></p>
+<ul>
+<li><a href="http://nodejs.org/download/">Download nodejs instructions</a></li>
+</ul>
+<p><strong>Installing NPM</strong></p>
+<ul>
+<li><a href="https://npmjs.org/">Overview</a></li>
+<li><code>curl https://npmjs.org/install.sh | sh</code></li>
+</ul>
+<p><strong>Installing Grunt</strong></p>
+<ul>
+<li><a href="http://gruntjs.com/getting-started">Getting started instructions</a></li>
+<li><code>npm install -g grunt-cli</code></li>
+</ul>
 <p>Once you have those, you can install all dependencies with:</p>
-<p>npm install</p>
+<p><code>npm install</code></p>
 <p>For ease of test/debug, you can run this under nodemon, which is why there‘s a Procfile. You simply have to run nodemon from the top level folder and it will Do The Right Thing. The default port is 
 port 80, so chances are that to run locally you’ll want to set the DUMMY_PORT environment variable
 to a port you&#39;d like to use for testing. For example, <code>export DUMMY_PORT=7887</code></p>
@@ -37,7 +53,7 @@ to a port you&#39;d like to use for testing. For example, <code>export DUMMY_POR
 <h2>Deployment</h2>
 <p>TBD</p>
 <h2>Documentation</h2>
-<p>TBD</p>
+<p>We use docco.</p>
 
         
       

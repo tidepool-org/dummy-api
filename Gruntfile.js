@@ -47,6 +47,14 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/**/*.js']
+      }
     }
   });
 
@@ -55,8 +63,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-docco2');
   grunt.loadNpmTasks('grunt-shell-spawn');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   // Default task(s).
-  grunt.registerTask('default', ['jshint', 'docco']);
+  grunt.registerTask('default', ['jshint', 'docco', 'mochaTest']);
 
 };

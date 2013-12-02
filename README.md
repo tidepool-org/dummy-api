@@ -35,7 +35,13 @@ to a port you'd like to use for testing. For example, ```export DUMMY_PORT=7887`
 
 ## Testing
 
-TBD
+- [Mocha test framework](http://visionmedia.github.io/mocha/)
+- [Integrations tests add-on supertest](https://github.com/visionmedia/supertest)
+
+To run the integration tests in seperate windows do the following
+
+```node lib/index.js```
+```mocha test```
 
 ## Deployment
 
